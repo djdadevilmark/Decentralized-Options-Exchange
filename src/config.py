@@ -29,3 +29,8 @@ def parse_positive_int(raw, fallback: int = 1) -> int:
 
 def parse_csv_env(raw: str) -> list:
     return [item.strip() for item in str(raw or '').split(',') if item.strip()]
+
+
+def redact_secret(secret: str, visible: int = 4) -> str:
+    s = str(secret or '')
+    return ('*' * max(4, len(s) - visible)) + s[-visible:] if len(s) > visible else '****'
