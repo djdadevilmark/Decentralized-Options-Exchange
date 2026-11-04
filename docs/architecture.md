@@ -9,3 +9,6 @@
 
 ### Logging Conventions
 Emit UTC ISO-8601 timestamps with flat `key=value` context fields for easy log parsing.
+
+### Shutdown Checklist
+Flush in-flight metrics snapshots and release local file locks before exiting worker loops.
